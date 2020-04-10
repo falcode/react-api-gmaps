@@ -1,0 +1,93 @@
+@import-normalize;
+@import 'styles/breakpoints';
+@import 'styles/resets';
+@import 'styles/animations';
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 2px;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 0px 20px;
+
+  @include sm {
+  justify-content: left;
+  }
+}
+.loading {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 10vh);
+  position: absolute;
+  background-color: #282c348f;
+  color: white;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  @include sm {
+    flex-direction: row-reverse;
+    
+  }
+}
+
+.container-list {
+  height: calc(50vh - 10vh);
+  max-height: calc(100vh - 10vh);
+  width: 100%;
+  overflow: auto;
+  @include sm {
+    height: 100%;
+    width: 35vw;
+    flex-direction: row-reverse;
+  }
+}
+.MapComponent {
+  width: 100%;
+  height: 50vh;
+  @include sm {
+    height: calc(100vh - 10vh);
+  }
+}
+
+.RouteComponent {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-color: #e8e8e8;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  padding-left: 5px;
+  transition: all 0.5s;
+  cursor: pointer;
+  @include sm {
+    height: 15vh;
+    border-width: 0px 0px 1px 0px;
+
+  }
+  &:hover {
+    background-color: rgb(219, 219, 219);
+  }
+}
+
