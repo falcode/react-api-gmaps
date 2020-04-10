@@ -10,10 +10,9 @@ export class Map extends Component {
         super(props);
         this.onScriptLoad = this.onScriptLoad.bind(this);
     }
+
     onScriptLoad() {
         let directionsRenderer = new window.google.maps.DirectionsRenderer();
-
-
         const map = new window.google.maps.Map(document.getElementById(this.props.id),
             {
                 center: {lat: 41.381459, lng: 2.185579}, 
@@ -32,7 +31,7 @@ export class Map extends Component {
         }
     }
 
-    calculateAndDisplayRoute(directionsService, directionsRenderer, route){
+    calculateAndDisplayRoute(directionsService, directionsRenderer, route) {
         directionsService.route({
             origin: route.origin.address,
             destination: route.destination.address,
@@ -77,6 +76,8 @@ export class Map extends Component {
     }
 }
 
-export default connect((state) => (
-    {currentRoute: state.routes.currentRoute}),
+export default connect(
+    (state) => ({
+        currentRoute: state.routes.currentRoute
+    }),
 )(Map);

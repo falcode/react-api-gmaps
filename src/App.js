@@ -19,7 +19,13 @@ export class App extends Component {
           Seat : CODE Challenge
         </header>
         {this.props.loading && 
-          <div className="loading"><h1>Loading<span>.</span><span>.</span><span>.</span></h1></div>
+          <div className="loading">
+            <h1>Loading
+              <span>.</span>
+              <span>.</span>
+              <span>.</span>
+            </h1>
+          </div>
         }
         <div className="container">
 
@@ -39,6 +45,9 @@ export class App extends Component {
 }
 
 export default connect(
-  (state) => ({routes: state.routes.routes, loading: state.routes.loading}),
+  (state) => ({
+    routes: state.routes.routes, 
+    loading: state.routes.loading
+  }),
   {fetchRoutes}  
 )(App)

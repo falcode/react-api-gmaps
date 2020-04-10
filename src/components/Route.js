@@ -28,8 +28,8 @@ export function addZero(i) {
 }
 
 
-export default connect((state) => (
-    {
+export default connect(
+    (state) => ({
         currentRoute: state.routes.currentRoute, 
         loading: state.routes.loading
     }),
