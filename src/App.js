@@ -6,8 +6,9 @@ import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import {fetchRoutes} from './reducer/routes';
 
+export const title = 'Seat : CODE Challenge';
 
-export class App extends Component {
+export class AppUnconnected extends Component {
   componentDidMount(){
     this.props.fetchRoutes();
   }
@@ -44,10 +45,11 @@ export class App extends Component {
   }
 }
 
-export default connect(
+const App = connect(
   (state) => ({
     routes: state.routes.routes, 
     loading: state.routes.loading
   }),
   {fetchRoutes}  
-)(App)
+)(AppUnconnected);
+export default App;

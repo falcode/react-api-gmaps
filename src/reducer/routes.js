@@ -17,7 +17,11 @@ export const fetchRoutes = ()  => {
     return (dispatch) => {
         dispatch(loading(true));
         getRoutes().then(routes => {
-            console.log(routes);
+            routes.forEach(route => { // cleaning empty objects
+                if(!route.stops.some(stop => stop && stop.hasOwnProperty('id'))) {
+                    route.stops = []
+                }
+            });
             dispatch(addRoutes(routes))
             dispatch(loading(false));  
         }, error => {
@@ -31,10 +35,10 @@ export const fetchStops = (route) => {
     return (dispatch) => {
         dispatch(loading(true));
         // Check if there are stops on the route
-        if(route.stops.some(stop => stop && Object.keys(stop).some(id => id))) {
+        if (route.stops.length) {
             Promise.all(route.stops.map((stop, i) => 
                 getStop(stop.id)
-                    .then(stopInfo => route.stops[i] = {...stopInfo, id: route.stops[i].id })
+                    .then(stopInfo => route.stops[i] = { ...route.stops[i], ...stopInfo })
             )).then(() => {
                 dispatch(selectRoute(route));
                 dispatch(loading(false));

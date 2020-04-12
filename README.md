@@ -8,15 +8,15 @@ The purpose of this project is to create a route maker with Google Maps API with
 
     .src
     ├── reducers                   # Contains all the actions and dispatches from the store
-    ├── styles                     # Contasins all the scss files and styles
+    ├── styles                     # Contains all the scss files and styles
     ├── components                 # Contains all the reusable modules
     └── services                   # Contains all the APIs services and UI services
 
 > **External Libraries ()**: 
-⋅⋅* [SASS](https://github.com/sass/node-sass),
-⋅⋅* [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension),
-⋅⋅* [Middleware Thunk](https://github.com/reduxjs/redux-thunk),
-⋅⋅* [Jest Fetch Mock](https://www.npmjs.com/package/jest-fetch-mock)
+[SASS](https://github.com/sass/node-sass),
+[Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension),
+[Middleware Thunk](https://github.com/reduxjs/redux-thunk),
+[Jest Fetch Mock](https://www.npmjs.com/package/jest-fetch-mock)
 
 
 ## Available Scripts
