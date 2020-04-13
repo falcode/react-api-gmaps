@@ -1,6 +1,6 @@
-# Seat : CODE Challenge
+Google Maps API with REACT
 
-### Technical Test - Google Maps API Route Maker
+### Google Maps API Route Maker
 
 The purpose of this project is to create a route maker with Google Maps API with an external API fetched information.
 
