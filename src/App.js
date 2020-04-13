@@ -33,8 +33,8 @@ export class AppUnconnected extends Component {
           <Map id="myMap" />
           { this.props.routes && this.props.routes.length &&
             <div className="container-list">
-              {this.props.routes.map((route, i) =>
-                <Route key={i} route={route}/>
+              {this.props.routes.map(route =>
+                <Route key={route.uniqueID} route={route} />
               )}
             </div>
           }

@@ -17,9 +17,10 @@ export const fetchRoutes = ()  => {
     return (dispatch) => {
         dispatch(loading(true));
         getRoutes().then(routes => {
-            routes.forEach(route => { // cleaning empty objects
+            routes.forEach((route, i) => { 
+                route.uniqueID = i; // adding an uniqueID
                 if(!route.stops.some(stop => stop && stop.hasOwnProperty('id'))) {
-                    route.stops = []
+                    route.stops = [] // cleaning empty objects
                 }
             });
             dispatch(addRoutes(routes))
@@ -53,7 +54,6 @@ export const fetchStops = (route) => {
 
     }
 }
-
 
 export default (state = initState, action) => {
     switch (action.type) {

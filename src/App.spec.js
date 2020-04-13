@@ -21,11 +21,35 @@ function shallowSetup() {
     enzymeWrapper
   };
 }
-describe("Button component", () => {
-  test("Matches the snapshot", () => {
-      const { enzymeWrapper, props } = shallowSetup();
-      expect(enzymeWrapper.find('.App-header').text()).toBe(title);
-      expect(props.loading).toBe(false);
+const { enzymeWrapper } = shallowSetup();
 
+
+
+describe("testing app rendered items", () => {
+  test("header title", () => {
+      expect(enzymeWrapper.find('.App-header').text()).toBe(title);
+  });
+  test("loading appears", () => {
+    expect(enzymeWrapper.find('.loading').length).toEqual(0);
+    enzymeWrapper.setProps({ loading: true});
+    expect(enzymeWrapper.find('.loading').length).toEqual(1);
+    expect(enzymeWrapper.find('.loading').text()).toBe('Loading...');
+  });
+  test("map component appears", () => {
+    expect(enzymeWrapper.find(Map).length).toEqual(1);
+  });
+  test("route component appears", () => {
+    expect(enzymeWrapper.find(Route).length).toEqual(0);
+    enzymeWrapper.setProps({ 
+      routes: [{ uniqueID: 1, route: {}}]
+    });
+    expect(enzymeWrapper.find(Route).length).toEqual(1);
+    enzymeWrapper.setProps({ 
+      routes: [
+        { uniqueID: 1, route: {}},
+        { uniqueID: 2, route: {}}
+      ]
+    });
+    expect(enzymeWrapper.find(Route).length).toEqual(2);
   });
 });

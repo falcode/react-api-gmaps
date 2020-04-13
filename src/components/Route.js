@@ -4,11 +4,14 @@ import {fetchStops} from '../reducer/routes';
 import {setTime} from '../utils/shared';
 
 
-export class Route extends Component {
+export class RouteUnconnected extends Component {
     render() {
         const route = this.props.route;
         return(
-            <div className={`RouteComponent ${this.props.loading ? "unclickable" : ""}`} 
+            <div className={
+                `RouteComponent 
+                ${this.props.loading ? "unclickable" : ""}
+                ${(this.props.currentRoute && route.uniqueID === this.props.currentRoute.uniqueID) ? "routeSelected" : ""}`} 
             onClick={() => this.props.fetchStops(route)}>
                 <p>{route.driverName}</p>
                 <p>{route.description}</p>
@@ -20,10 +23,11 @@ export class Route extends Component {
 }
 
 
-export default connect(
+const Route = connect(
     (state) => ({
         currentRoute: state.routes.currentRoute, 
-        loading: state.routes.loading
+        loading: state.routes.loading,
     }),
     {fetchStops}
-)(Route);
+)(RouteUnconnected);
+export default Route;

@@ -93,3 +93,10 @@ p {
   }
 }
 
+.routeSelected {
+  background-color: #282c34;
+  color: white;
+  &:hover {
+    background-color: #1b1f29
+  }
+}
