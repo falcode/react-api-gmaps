@@ -3,8 +3,7 @@ import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import {setTime} from '../utils/shared';
 
-// const key = 'AIzaSyD1aCwKJ42a5xoT7lk4EEgdHueW0vMY8TA'; // seat key
-const key = 'AIzaSyA_8TDaH8ZovPT4TO0rZdBNCdSND3G31kM'; // mine key
+const key = 'AIzaSyD1aCwKJ42a5xoT7lk4EEgdHueW0vMY8TA';
 const travelMode = 'DRIVING';
 const origin = 'Origen';
 const destiny = 'Destino';
